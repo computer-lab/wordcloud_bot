@@ -206,7 +206,7 @@ while len(seen) > 0:
           plt.axis('off')
           if flatten is False:
             plt.imshow(wordcloud.recolor(color_func=image_colors))
-          filename1 = 'resized_image.png'
+          filename1 = 'resized_image.jpg'
           #plt.savefig(filename1, bbox_inches='tight', pad_inches=0)
           plt.savefig(filename1, dpi=300)
           api = twitter_api(consumer_key, consumer_secret, access_key, access_secret)
