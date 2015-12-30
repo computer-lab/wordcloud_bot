@@ -169,7 +169,7 @@ while len(seen) > 0:
           elif user != sender:
             msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that @'+sender+' generated for you! http://goo.gl/Qqqn3k'
           else:
-            msg = '@'+user+' thanks for using @computerlab_ wordcloud generator!, cool tweets and '+msg_text+' wordcloud http://goo.gl/Qqqn3k'
+            msg = '@'+user+' thanks for using @computerlab_ wordcloud generator!, nice '+msg_text+' wordcloud http://goo.gl/Qqqn3k'
 
 
           # join tweets to a single string
