@@ -20,10 +20,8 @@ def twitter_api(consumer_key, consumer_secret, access_token, access_token_secret
 
 
 def search(dictionary, text):
-  print text
   for k in dictionary.keys():
     if k in text:
-      print k
       return dictionary[k]
       break
   whoops = random.choice(dictionary.keys())
@@ -156,6 +154,10 @@ while len(seen) > 0:
             flatten = False
             background_color = 'white'
             font = './HelveticaNeue-Bold.ttf'
+          elif image == 'weed_leaf.png':
+            flatten = False
+            background_color = 'white'
+            font = './HelveticaNeue-Bold.ttf'
           else:
             flatten = True
             background_color = 'black'
@@ -163,11 +165,11 @@ while len(seen) > 0:
 
 
           if sender == 'computerlab_':
-            msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that we generated for you! more info http://goo.gl/Qqqn3k'
+            msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that we generated for you! http://goo.gl/Qqqn3k'
           elif user != sender:
-            msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that @'+sender+' generated for you! more info http://goo.gl/Qqqn3k'
+            msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that @'+sender+' generated for you! http://goo.gl/Qqqn3k'
           else:
-            msg = '@'+user+' thanks for using @computerlab_ wordcloud generator!, cool tweets and '+msg_text+' wordcloud'
+            msg = '@'+user+' thanks for using @computerlab_ wordcloud generator!, cool tweets and '+msg_text+' wordcloud http://goo.gl/Qqqn3k'
 
 
           # join tweets to a single string
