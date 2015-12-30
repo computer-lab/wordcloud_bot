@@ -169,9 +169,9 @@ while len(seen) > 0:
 
 
           if sender == 'computerlab_':
-            msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that we generated for you! http://goo.gl/Qqqn3k'
+            msg = '@'+user+' cool '+msg_text+' tweet wordcloud that we generated for you! http://goo.gl/Qqqn3k'
           elif user != sender:
-            msg = '@'+user+' look at the '+msg_text+' tweet wordcloud that @'+sender+' generated for you! http://goo.gl/Qqqn3k'
+            msg = '@'+user+' cool '+msg_text+' tweet wordcloud @'+sender+' generated for you! http://goo.gl/Qqqn3k'
           else:
             msg = '@'+user+' thanks for using our wordcloud generator nice '+msg_text+' wordcloud http://goo.gl/Qqqn3k'
 
