@@ -101,7 +101,7 @@ masks = {'dog':['dog_shit.png','shitting dog'],'facebook':['facebook_avatar.png'
 'bat':['bat.png','bat shape'],'bong':['bong.png','bong'],'horse':['horse.png','horse'],'penis':['penis.png','penis']
 ,'woman':['sexy_lady.png','sexualized female'],'weed':['weed_leaf.png','weed leaf'],'comic sans':['Comic Sans MS.ttf','comic sans']
 ,'jumpman':['jumpman.png','jumpman'],'kms':['kms.png','kms'],'honk':['goose.png','honk'], 'michael manning':['manning.png','michael manning color palette']
-,'pope hat':['pope_hat.png','pope hat'],'cat':['cat.png','cat']}
+,'pope hat':['pope_hat.png','pope hat'],'cat':['cat.png','cat'],'shrek':['shrek.png','shrek'],'pepe':['pepe.png','pepe']}
 seen = []
 log = open('log.txt','r')
 for l in log:
@@ -172,6 +172,14 @@ while len(seen) > 0:
             flatten = False
             background_color = 'black'
             font = './HelveticaNeue-Bold.ttf'
+          elif image == 'shrek.png':
+            flatten = False
+            background_color = 'white'
+            font = './Comic Sans MS.ttf'
+          elif image == 'pepe.png':
+            flatten = False
+            background_color = 'white'
+            font = './Comic Sans MS.ttf'
           else:
             flatten = True
             background_color = 'black'
