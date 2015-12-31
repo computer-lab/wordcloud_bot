@@ -100,7 +100,8 @@ consumer_key, consumer_secret, access_key, access_secret = creds()
 masks = {'dog':['dog_shit.png','shitting dog'],'facebook':['facebook_avatar.png','facebook shape'],'twitter':['twitter_mask.png','twitter bird'],
 'bat':['bat.png','bat shape'],'bong':['bong.png','bong'],'horse':['horse.png','horse'],'penis':['penis.png','penis']
 ,'woman':['sexy_lady.png','sexualized female'],'weed':['weed_leaf.png','weed leaf'],'comic sans':['Comic Sans MS.ttf','comic sans']
-,'jumpman':['jumpman.png','jumpman'],'kms':['kms.png','kms'],'honk':['goose.png','honk']}
+,'jumpman':['jumpman.png','jumpman'],'kms':['kms.png','kms'],'honk':['goose.png','honk'], 'michael manning':['manning.png','michael manning color palette']
+,'pope hat':['pope_hat.png','pope hat'],'cat':['cat.png','cat']}
 seen = []
 log = open('log.txt','r')
 for l in log:
@@ -119,6 +120,7 @@ while len(seen) > 0:
       request_id = i.id_str
       seen.append(int(request_id)+1)
       log.write(request_id + '\n')
+      print i.text
 
       hashtags = i.entities['hashtags']
       for h in hashtags:
@@ -162,18 +164,27 @@ while len(seen) > 0:
             flatten = False
             background_color = 'black'
             font = './HelveticaNeue-Bold.ttf'
+          elif image == 'manning.png':
+            flatten = False
+            background_color = 'white'
+            font = './Comic Sans MS.ttf'
+          elif image == 'pope_hat.png':
+            flatten = False
+            background_color = 'black'
+            font = './HelveticaNeue-Bold.ttf'
           else:
             flatten = True
             background_color = 'black'
             font = './HelveticaNeue-Bold.ttf'
 
-
-          if sender == 'computerlab_':
-            msg = '@'+user+' cool '+msg_text+' tweet wordcloud that we generated for you! http://goo.gl/Qqqn3k'
+          if image == 'manning.png':
+            msg = '@'+user+' look a '+msg_text+' tweet wordcloud from your tweets'
+          elif sender == 'computerlab_':
+            msg = '@'+user+' cool '+msg_text+' tweet wordcloud that we generated for you!'
           elif user != sender:
-            msg = '@'+user+' cool '+msg_text+' tweet wordcloud @'+sender+' generated for you! http://goo.gl/Qqqn3k'
+            msg = '@'+user+' '+msg_text+' tweet wordcloud @'+sender+' generated for you!'
           else:
-            msg = '@'+user+' thanks for using our wordcloud generator nice '+msg_text+' wordcloud http://goo.gl/Qqqn3k'
+            msg = '@'+user+' thanks for using our wordcloud generator nice '+msg_text+' wordcloud'
 
 
           # join tweets to a single string
