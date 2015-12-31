@@ -100,8 +100,9 @@ consumer_key, consumer_secret, access_key, access_secret = creds()
 masks = {'dog':['dog_shit.png','shitting dog'],'facebook':['facebook_avatar.png','facebook shape'],'twitter':['twitter_mask.png','twitter bird'],
 'bat':['bat.png','bat shape'],'bong':['bong.png','bong'],'horse':['horse.png','horse'],'penis':['penis.png','penis']
 ,'woman':['sexy_lady.png','sexualized female'],'weed':['weed_leaf.png','weed leaf'],'comic sans':['Comic Sans MS.ttf','comic sans']
-,'jumpman':['jumpman.png','jumpman'],'kms':['kms.png','kms'],'honk':['goose.png','honk'], 'michael manning':['manning.png','michael manning color palette']
-,'pope hat':['pope_hat.png','pope hat'],'cat':['cat.png','cat'],'shrek':['shrek.png','shrek'],'pepe':['pepe.png','pepe']}
+,'jumpman':['jumpman.png','jumpman'],'kms':['kms.png','kms'],'honk':['goose.png','honk'], 'manning':['manning.png','michael manning color palette']
+,'pope hat':['pope_hat.png','pope hat'],'cat':['cat.png','cat'],'shrek':['shrek.png','shrek'],'pepe':['pepe.png','pepe']
+, 'banana':['banana.png','banana']}
 seen = []
 log = open('log.txt','r')
 for l in log:
@@ -111,7 +112,12 @@ log.close()
 log = open('log.txt','ab')
 while len(seen) > 0:
   last_mention = max(seen)
-  mentions =  listen(consumer_key, consumer_secret, access_key, access_secret,last_mention)
+  try:
+    mentions =  listen(consumer_key, consumer_secret, access_key, access_secret,last_mention)
+  except Exception:
+    print 'some sort of drama when listening'
+    sleep(420)
+    pass
   if len(mentions) < 1:
     sleep(420)
     print 'no new mentions, taking a 420 second break'
@@ -180,6 +186,10 @@ while len(seen) > 0:
             flatten = False
             background_color = 'white'
             font = './Comic Sans MS.ttf'
+          elif image == 'banana.png':
+            flatten = False
+            background_color = 'white'
+            font = './Comic Sans MS.ttf'
           else:
             flatten = True
             background_color = 'black'
@@ -237,8 +247,13 @@ while len(seen) > 0:
           #plt.savefig(filename1, bbox_inches='tight', pad_inches=0)
           plt.savefig(filename1, dpi=300)
           api = twitter_api(consumer_key, consumer_secret, access_key, access_secret)
-          api.update_with_media(filename1, status=msg)
-          os.remove(filename1)
-          print 'tweeted '+msg
-          sleep(30)
+          try:
+            api.update_with_media(filename1, status=msg)
+            os.remove(filename1)
+            print 'tweeted '+msg
+            sleep(30)
+          except Exception:
+            print 'couldnt tweet'
+            sleep(30)
+            pass
 
