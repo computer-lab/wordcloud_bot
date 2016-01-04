@@ -102,7 +102,7 @@ masks = {'dog':['dog_shit.png','shitting dog'],'facebook':['facebook_avatar.png'
 ,'woman':['sexy_lady.png','sexualized female'],'weed':['weed_leaf.png','weed leaf'],'comic sans':['Comic Sans MS.ttf','comic sans']
 ,'jumpman':['jumpman.png','jumpman'],'kms':['kms.png','kms'],'honk':['goose.png','honk'], 'manning':['manning.png','michael manning color palette']
 ,'pope hat':['pope_hat.png','pope hat'],'cat':['cat.png','cat'],'shrek':['shrek.png','shrek'],'pepe':['pepe.png','pepe']
-, 'banana':['banana.png','banana']}
+, 'banana':['banana.png','banana'],'club mate':['club_mate.png','club mate']}
 seen = []
 log = open('log.txt','r')
 for l in log:
@@ -146,6 +146,10 @@ while len(seen) > 0:
           text = re.sub(r'\w+:\/{2}[\d\w-]+(\.[\d\w-]+)*(?:(?:\/[^\s/]*))*|\@\w+|\#\w+', '',text)
           image,msg_text = search(masks,text)
           if image == 'facebook_avatar.png':
+            flatten = False
+            background_color = 'white'
+            font = './HelveticaNeue-Bold.ttf'
+          elif image == 'club_mate.png':
             flatten = False
             background_color = 'white'
             font = './HelveticaNeue-Bold.ttf'
